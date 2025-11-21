@@ -1,3 +1,5 @@
+import 'package:calculator/widgets/blue_container.dart';
+
 import 'package:flutter/material.dart';
 
 class Calculator extends StatefulWidget {
@@ -35,33 +37,10 @@ class _CalculatorState extends State<Calculator> {
             borderRadius: BorderRadius.circular(20)),
             child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(width: 60,height: 80,
-                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),
-                 color: Colors.blue),
-                 child: Center(
-                   child: Text("$number1",style: TextStyle(color: Colors.white,
-                   fontSize: 30),),
-                 ),
-                 ),
-                
-                
-                Container(width: 60,height: 80,
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),
-                  color: Colors.blue),
-                  child: Center(
-                    child: Text("$number2",style: TextStyle(color: Colors.white,
-                    fontSize: 30),),
-                  ),
-                 ),
+                BlueContainer(txt: "$number1"),
+                BlueContainer(txt: "$number2"),
                  Text("=", style: TextStyle(color: Colors.white , fontSize: 50),),
-                Container(width: 60,height: 80,
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),
-                  color: Colors.blue),
-                  child: Center(
-                    child: Text("$result", style: TextStyle(color: Colors.white,
-                    fontSize: 30),),
-                  ),
-                 )
+               BlueContainer(txt: "$result")
                  
               ],),
             ),
@@ -104,8 +83,8 @@ class _CalculatorState extends State<Calculator> {
         Row(
           children: [
              InkWell(onTap: (){setState(() {
-               number2++;
-             });},
+              number2++;
+            });},
                child: CircleAvatar(radius: 21,backgroundColor: Colors.white,
                 child: CircleAvatar(radius: 20,backgroundColor: Colors.black,
                 child: Icon(Icons.add,color: Colors.blue,),),
@@ -225,13 +204,7 @@ class _CalculatorState extends State<Calculator> {
        ),
        const SizedBox(height: 10,),
 
-       InkWell(onTap: () { 
-           setState(() {
-             number1;
-           number2;
-           result;
-           }); },
-         child: CircleAvatar(radius: 80,backgroundColor: Colors.blue,
+        CircleAvatar(radius: 80,backgroundColor: Colors.blue,
          child: TextButton(onPressed: (){setState(() {
            number1=0;
          number2=0;
@@ -239,7 +212,7 @@ class _CalculatorState extends State<Calculator> {
          });}, 
          child: Text("Reset all",style: TextStyle(color: Colors.white,
          fontSize: 20),)),),
-       )
+       
 
 
        
